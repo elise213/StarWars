@@ -9,3 +9,9 @@ hr {
 .container {
     margin: auto;
 }
+
+.container-card {
+    box-sizing: border-box;
+    display: inline-block;
+    
+}
