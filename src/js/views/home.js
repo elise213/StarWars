@@ -13,8 +13,8 @@ export const Home = () => {
   console.log(store.vehicles)
 
   return (
-  <div className="m-5">
-  <span className="title color-red">Characters</span>
+  <div className="mx-5 p-5">
+  <h1 className="title text-danger">Characters</h1>
   <Card />
   </div>
   )};
