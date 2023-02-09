@@ -8,9 +8,9 @@ export const Home = () => {
   useEffect(() => {
     actions.loadSomeData();
   }, []);
-  console.log(store.people);
-  console.log(store.planets);
-  console.log(store.vehicles);
+  // console.log(store.people);
+  // console.log(store.planets);
+  // console.log(store.vehicles);
 
   const people = store.people;
   const planets = store.planets;
@@ -23,7 +23,7 @@ export const Home = () => {
       {people.map((person, idx) => {
         return (
           <div className="my-card" key={idx}>
-            <Card person={person} c_id={idx} />
+            <Card person={person} id={idx} />
           </div>
         );
       })}
@@ -34,7 +34,7 @@ export const Home = () => {
       {planets.map((planet, idx) => {
         return (
           <div className="my-card" key={idx}>
-            <Card planet={planet} c_id={idx} />
+            <Card planet={planet} id={idx} />
           </div>
         );
       })}
