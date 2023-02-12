@@ -12,3 +12,7 @@
     display: inline-block;
     margin: 0rem 1rem 0rem 1rem;
 }
+
+.fa-heart {
+    color: blue;
+}

@@ -8,20 +8,19 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       // Use getActions to call a function within a fuction
-      
+
       loadSomeData: () => {
         /**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+        console.log("I was called");
         fetch("https://swapi.dev/api/people")
           .then((response) => response.json())
           .then((result) => {
-            setStore({ people: result.results });
-            console.log(result);
-          })
-
+            setStore({ people: result.results })
+            console.log(result)})
           .catch((error) => {
-            console.log(error, "occurred at my fetch");
+            console.log(error, "occurred at my fetch")
           });
         fetch("https://swapi.dev/api/planets")
           .then((response) => response.json())
@@ -29,35 +28,40 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => {
             console.log(error, "occurred at my fetch");
           });
-        fetch("https://swapi.dev/api/vehicles")
+        fetch("https://swapi.dev/api/starships")
           .then((response) => response.json())
           .then((result) => setStore({ vehicles: result.results }))
           .catch((error) => {
             console.log(error, "occurred at my fetch");
           });
       },
-getPerson: (index) => {
-	const person=getStore().people
-	return person[index];
-},
+      getPerson: (index) => {
+        const person = getStore().people;
+        console.log("person from flux", person);
+        return person[index];
+      },
 
-getPlanet: (index) => {
-	const planet=getStore().planets
-	return planet[index];
-},
+      getPlanet: (index) => {
+        const planet = getStore().planets;
+        return planet[index];
+      },
 
-deleteFavorite: (index) => {
-  const favorites=getStore().favorites
-  let filtered = favorites.filter((f, i) => i !== index)
-  setStore({favorites: filtered})
-},
+      getVehicle: (index) => {
+        const vehicle = getStore().vehicles;
+        return vehicle[index];
+      },
 
-addFavorite : (name) => {
-  const favorite = getStore().favorites
-  favorite.push(name)
-  setStore({favorites: favorite})
-},
-  
+      deleteFavorite: (index) => {
+        const favorites = getStore().favorites;
+        let filtered = favorites.filter((f, i) => i !== index);
+        setStore({ favorites: filtered });
+      },
+
+      addFavorite: (name) => {
+        const favorite = getStore().favorites;
+        favorite.push(name);
+        setStore({ favorites: favorite });
+      },
     },
   };
 };
