@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 const Card = (props) => {
   const { store, actions } = useContext(Context);
   const [liked, setLiked] = useState(false)
-  let typeURL = props.person ? "/component/person/" : "/component/planet/";
+  let typeURL = props.person ? "/component/person/" : props.planet ? "/component/planet/" : "/component/vehicle/" 
   let name = props.person ? props.person.name : props.planet ? props.planet.name : props.vehicle.name;  
   let personProp = props.person && (
     <div>

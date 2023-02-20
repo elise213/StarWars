@@ -10,9 +10,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Use getActions to call a function within a fuction
 
       loadSomeData: () => {
-        /**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
         console.log("I was called");
         fetch("https://swapi.dev/api/people")
           .then((response) => response.json())

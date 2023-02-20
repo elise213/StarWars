@@ -8,18 +8,18 @@ export const Demo = () => {
   const params = useParams();
   const [item, setItem] = useState({});
   const [type, setType] = useState(
-    window.location.href.includes("person") ? "person" : "planet"
+    window.location.href.includes("person") ? "person" : window.location.href.includes("planet")? "planet" : "vehicle"
   );
 
   useEffect(() => {
     // actions.loadSomeData();
-    setType(window.location.href.includes("person") ? "person" : "planet");
+    setType( window.location.href.includes("person") ? "person" : window.location.href.includes("planet")? "planet" : "vehicle");
   }, []);
 
   useEffect(() => {
     if (type == "person") {
       console.log(type, params.index);
-      fetch(`https://swapi.dev/api/people/${params.index + 1}`)
+      fetch(`https://swapi.dev/api/people/${parseInt(params.index) + 1}`)
         .then((response) => response.json())
         .then((result) => {
           setItem(result);
@@ -29,7 +29,7 @@ export const Demo = () => {
           console.log(error, "occurred at my fetch");
         });
     } else if (type == "planet") {
-      fetch(`https://swapi.dev/api/planets/${params.index + 1}`)
+      fetch(`https://swapi.dev/api/planets/${parseInt(params.index) + 1}`)
       .then((response) => response.json())
       .then((result) => {
         setItem(result);
@@ -39,7 +39,8 @@ export const Demo = () => {
         console.log(error, "occurred at my fetch");
       });
     } else {
-      fetch(`https://swapi.dev/api/starships/${params.index + 1}`)
+      console.log("starship")
+      fetch(`https://swapi.dev/api/starships/${parseInt(params.index) + 2}`)
       .then((response) => response.json())
       .then((result) => {
         setItem(result);
@@ -60,7 +61,7 @@ export const Demo = () => {
         <div className="col-6">
           <img
             src={`https://starwars-visualguide.com/assets/img/characters/${
-              params.index + 1
+              parseInt(params.index) + 1
             }.jpg`}
           />
         </div>
