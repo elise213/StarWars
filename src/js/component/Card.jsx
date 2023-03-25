@@ -44,7 +44,7 @@ const Card = (props) => {
   ) ;
 
   return (
-    <div className="container-card mt-5">
+    <div className="container-card">
       <div className="card">
       
         {props.person ? personProp : ""}

@@ -1,10 +1,17 @@
+.container {
+    /* padding-left: 2px;
+    padding-right: 2px; */
+}
+
+.title {
+    padding-top: 20px;
+    padding-left: 15px;
+}
+
 .card-container {
-    width: 80%;
-    padding: 30px;
     overflow-x: scroll;
     white-space: nowrap;
     background: #f5f5f5;
-    border-radius: 14px;
 }
 
 .my-card {

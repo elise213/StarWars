@@ -13,9 +13,9 @@ export const Home = () => {
   const vehicles = store.vehicles;
 
   return (
-    <div>
+    <div className="container">
       <h1 className="title text-danger">Characters</h1>
-      <div className="mx-5 p-5 card-container">
+      <div className="card-container">
         {people.map((person, idx) => {
           return (
             <div className="my-card" key={idx}>
@@ -26,7 +26,7 @@ export const Home = () => {
       </div>
 
       <h1 className="title text-danger">Planets</h1>
-      <div className="mx-5 p-5 card-container">
+      <div className="card-container">
         {planets.map((planet, idx) => {
           return (
             <div className="my-card" key={idx}>
@@ -37,7 +37,7 @@ export const Home = () => {
       </div>
 
       <h1 className="title text-danger">Vehicles</h1>
-      <div className="mx-5 p-5 card-container">
+      <div className="card-container">
         {vehicles.map((vehicle, idx) => {
           return (
             <div className="my-card" key={idx}>
